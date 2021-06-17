@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:SYNOPEX_ICT.ResouresXAML"
+                    xmlns:vm ="clr-namespace:SYNOPEX_ICT.ViewModels">
+    <vm:MainWindowVM x:Key="VMmainWindow"></vm:MainWindowVM>
+    <vm:VMcontrolBar x:Key="VMcontrolBar"></vm:VMcontrolBar>    
+</ResourceDictionary>
