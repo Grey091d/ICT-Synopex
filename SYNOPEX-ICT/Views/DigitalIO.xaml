@@ -1,0 +1,426 @@
+﻿<UserControl x:Class="SYNOPEX_ICT.Views.DigitalIO"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SYNOPEX_ICT.Views"
+             mc:Ignorable="d" 
+             DataContext="{StaticResource DigitalIOVM}"
+             d:DesignHeight="700" d:DesignWidth="500">
+    <Grid>
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="0 0 0 0"></Setter>
+                    <Setter Property="Width" Value="31.25"></Setter>
+                    <Setter Property="Height" Value="30"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <!--#region Table-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <!--#region JOIN-->
+                <StackPanel Grid.Column="0">
+                    <Label Content="Join Positions"
+                                Foreground="White"
+                                        FontFamily="Britannic Bold"
+                               HorizontalContentAlignment="Center"/>
+                    <Grid Height="300">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <!--#region Namevalue-->
+                        <Label Content="Joint-1"
+                                   Foreground="White"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"/>
+                        <Label Content="Joint-2"
+                                   Foreground="White"
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"/>
+                        <Label Content="Joint-3"
+                                   Foreground="White"
+                                   Grid.Row="2"
+                                   Grid.Column="0"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"/>
+                        <Label Content="Joint-4"
+                                   Foreground="White"
+                                   Grid.Row="3"
+                                   Grid.Column="0"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"/>
+
+                        <!--#endregion-->
+                        <Label Content="{Binding Joint1,StringFormat={}{0:F2}}"
+                                   Foreground="White"
+                                   Grid.Row="0"
+                                   Grid.Column="1"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"/>
+                        <Label  Content="{Binding Joint2}"
+                                   Foreground="White"
+                                   Grid.Row="1"
+                                   Grid.Column="1"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"/>
+                        <Label  Content="{Binding Joint3}"
+                                   Foreground="White"
+                                   Grid.Row="2"
+                                   Grid.Column="1"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"/>
+                        <Label  Content="{Binding Joint4}"
+                                   Foreground="White"
+                                   Grid.Row="3"
+                                   Grid.Column="1"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"/>
+
+                        <!--#endregion-->
+                    </Grid>
+                </StackPanel>
+                <!--#endregion-->
+                <!--#region TOOL-->
+                <StackPanel Grid.Column="1">
+                    <Label Content="Tool Positions"
+                               Foreground="White"
+                                        FontFamily="Britannic Bold"
+                               HorizontalContentAlignment="Center"/>
+                    <Grid Height="300">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <!--#region Namevalue-->
+                        <Label Content="X"
+                                   Foreground="White"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"/>
+                        <Label Content="Y"
+                                   Foreground="White"
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"/>
+                        <Label Content="Z"
+                                   Foreground="White"
+                                   Grid.Row="2"
+                                   Grid.Column="0"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"/>
+                        <Label Content="U"
+                                   Foreground="White"
+                                   Grid.Row="3"
+                                   Grid.Column="0"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"/>
+                        <Label Content="V"
+                                   Foreground="White"
+                                   Grid.Row="4"
+                                   Grid.Column="0"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"/>
+                        <Label Content="M"
+                                   Foreground="White"
+                                   Grid.Row="5"
+                                   Grid.Column="0"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"/>
+                        <!--#endregion-->
+                        <!--#region value-->
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="White"
+                                   Grid.Row="0"
+                                   Grid.Column="1">                            
+                                <Run Text="{Binding Xcoordinates}"/>
+                                <Run Text=" mm"/>                           
+                        </TextBlock>
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="White"
+                                   Grid.Row="1"
+                                   Grid.Column="1">                            
+                                <Run Text="{Binding Ycoordinates}"/>
+                                <Run Text=" mm"/>
+                        </TextBlock>
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="White"
+                                   Grid.Row="2"
+                                   Grid.Column="1">                            
+                                <Run Text="{Binding Zcoordinates}"/>
+                                <Run Text=" mm"/>
+                        </TextBlock>
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="White"
+                                   Grid.Row="3"
+                                   Grid.Column="1">
+                            <Run Text="{Binding Ucoordinates}"/>
+                            <Run Text="°"/>
+                            </TextBlock>
+                            <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="White"
+                                   Grid.Row="4"
+                                   Grid.Column="1">                            
+                                <Run Text="{Binding Vcoordinates}"/>
+                                <Run Text="°"/>
+                            </TextBlock>
+                            <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="White"
+                                   Grid.Row="5"
+                                   Grid.Column="1">                            
+                                <Run Text="{Binding Mcoordinates}"/>
+                                <Run Text="°"/>
+                            </TextBlock>
+                            <!--#endregion-->
+                    </Grid>
+                </StackPanel>
+                <!--#endregion-->
+            </Grid>
+            <!--#endregion-->
+            <!--#region Port-->
+            <Label Content="DO"
+                       Foreground="Black"
+                                        FontFamily="Britannic Bold"/>
+            <!--#region DI-->
+            <DockPanel>
+                <Button Background="Gray"
+                            Content="0"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="1"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="2"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="3"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="4"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="5"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="6"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="7"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="8"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="9"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="10"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="11"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="12"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="13"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="14"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="15"
+                            Foreground="White"/>
+            </DockPanel>
+            <DockPanel>
+                <Button Background="Gray"
+                            Content="16"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="17"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="18"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="19"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="20"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="21"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="22"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="23"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="24"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="25"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="26"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="27"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="28"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="29"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="30"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="31"
+                            Foreground="White"/>
+            </DockPanel>
+            <!--#endregion-->
+            <Label Content="DI"
+                        Foreground="Black"
+                                        FontFamily="Britannic Bold"/>
+            <!--#region DO-->
+            <DockPanel>
+                <Button Background="Gray"
+                            Content="0"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="1"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="2"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="3"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="4"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="5"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="6"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="7"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="8"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="9"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="10"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="11"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="12"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="13"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="14"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="15"
+                            Foreground="White"/>
+            </DockPanel>
+            <DockPanel>
+                <Button Background="Gray"
+                            Content="16"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="17"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="18"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="19"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="20"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="21"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="22"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="23"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="24"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="25"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="26"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="27"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="28"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="29"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="30"
+                            Foreground="White"/>
+                <Button Background="Gray"
+                            Content="31"
+                            Foreground="White"/>
+            </DockPanel>
+            <!--#endregion-->
+            <!--#endregion-->
+        </StackPanel>
+    </Grid>
+</UserControl>

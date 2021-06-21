@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SYNOPEX_ICT"
         mc:Ignorable="d"
+        xmlns:views ="clr-namespace:SYNOPEX_ICT.Views"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
          TextElement.FontWeight="Regular"
@@ -14,7 +15,7 @@
          Background="{DynamicResource MaterialDesignPaper}"
          FontFamily="{DynamicResource MaterialDesignFont}"
          xmlns:uc="clr-namespace:SYNOPEX_ICT.UserControls"         
-         xmlns:viewmodels="clr-namespace:SYNOPEX_ICT.ViewModels"
+         xmlns:viewmodels="clr-namespace:SYNOPEX_ICT.ViewModels"        
          ResizeMode="NoResize"
         WindowStyle="None"
         Title="HOME SCREEN"
@@ -27,134 +28,51 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <uc:ControlBar Tag="{Binding Title, ElementName=MainWindow1}"></uc:ControlBar>
+            <uc:ControlBar Tag="{Binding Title, ElementName=MainWindow1}"
+                           ></uc:ControlBar>
         </Grid>
         <ToolBarTray Grid.Row="1">
-            <ToolBar
-    Style="{DynamicResource MaterialDesignToolBar}"
-    ClipToBounds="False">
-                <Button
-      ToolTip="Follow me on Twitter"     
-      Content="{materialDesign:PackIcon Kind=Twitter}" />
-                <Button
-      ToolTip="Save"
-      Content="{materialDesign:PackIcon Kind=ContentSave}" />
-                <Separator />
-                <Button
-      Command="Cut"
-      ToolTip="Cut"
-      ToolBar.OverflowMode="AsNeeded"
-      Content="{materialDesign:PackIcon Kind=ContentCut}" />
-                <Button
-      Command="Copy"
-      ToolTip="Copy that stuff"
-      ToolBar.OverflowMode="AsNeeded"
-      Content="{materialDesign:PackIcon Kind=ContentCopy}" />
-                <Separator />
-                <Button
-      Command="Paste"
-      ToolTip="Paste some stuff"
-      ToolBar.OverflowMode="AsNeeded"
-      Content="{materialDesign:PackIcon Kind=ContentPaste}" />
-                <!-- when badging in a toolbar, make sure the parent ToolBar.ClipToBounds="False", and
-                   manually apply the button style -->
-                <materialDesign:Badged
-      ToolBar.OverflowMode="AsNeeded"
-      Badge="{materialDesign:PackIcon Alert}"
-      CornerRadius="5">
-                    <Button
-        ToolTip="Badge it up!"
-        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
-        Content="{materialDesign:PackIcon Kind=AirplaneTakeoff}" />
-                </materialDesign:Badged>
+            <ToolBar Style="{DynamicResource MaterialDesignToolBar}"
+                     ClipToBounds="False">
+                <Button Command="{Binding NavigateAnalysisCadModeCommand}"
+                        ToolTip="Mo file CAD moi"     
+                        Content="{materialDesign:PackIcon Kind=FileCadBox}" />
+                <Button Command="{Binding NavigateScreenWorkCommand}"
+                          ToolTip="Phan dieu khien may"
+                          Content="{materialDesign:PackIcon Kind=MotionPlay}" />
+                <Separator />              
                 <Separator />
                 <ListBox>
                     <ListBoxItem
-        ToolTip="This is a lonley toggle with TextBlock instead of icon">
+                                ToolTip="Sản phẩm của CTCP công nghệ RAV">
                         <TextBlock
-          Text="W" />
+                                  Text="RAV" />
                     </ListBoxItem>
                 </ListBox>
-                <Separator />
-                <ListBox
-      SelectedIndex="0">
-                    <ListBox.ToolTip>
-                        <StackPanel>
-                            <TextBlock
-            Text="MaterialDesignToolToggleFlatListBox" />
-                            <TextBlock
-            Text="Exclusive selection" />
-                            <TextBlock
-            Text="ListBoxAssist.IsToggle allows more natural toggle behaviour" />
-                        </StackPanel>
-                    </ListBox.ToolTip>
-                    <ListBoxItem
-        Content="{materialDesign:PackIcon Kind=FormatAlignLeft}" />
-                    <ListBoxItem
-        Content="{materialDesign:PackIcon Kind=FormatAlignCenter}" />
-                    <ListBoxItem
-        Content="{materialDesign:PackIcon Kind=FormatAlignRight}" />
-                    <ListBoxItem
-        Content="{materialDesign:PackIcon Kind=FormatAlignJustify}" />
-                </ListBox>
-                <Separator />
-                <ListBox
-      SelectionMode="Extended">
-                    <ListBox.ToolTip>
-                        <StackPanel>
-                            <TextBlock
-            Text="MaterialDesignToolToggleListBox" />
-                            <TextBlock
-            Text="Multiple selection" />
-                            <TextBlock
-            Text="ListBoxAssist.IsToggle allows more natural toggle behaviour" />
-                        </StackPanel>
-                    </ListBox.ToolTip>
-                    <ListBoxItem
-        Content="{materialDesign:PackIcon Kind=FormatBold}" />
-                    <ListBoxItem
-        Content="{materialDesign:PackIcon Kind=FormatItalic}" />
-                    <ListBoxItem
-        Content="{materialDesign:PackIcon Kind=FormatUnderline}" />
-                </ListBox>
-                <Separator />
-                <Label
-      Content="Font size:"
-      VerticalAlignment="Center" />
-                <ComboBox>
-                    <ComboBoxItem
-        Content="10" />
-                    <ComboBoxItem
-        IsSelected="True"
-        Content="12" />
-                    <ComboBoxItem
-        Content="14" />
-                    <ComboBoxItem
-        Content="16" />
-                </ComboBox>
-                <CheckBox
-      Content="Check" />
+                <Separator/>                     
+                <Separator/>              
+                <CheckBox      Content="Check" />
                 <Button
-      ToolTip="Take a nap"
-      ToolBar.OverflowMode="Always"
-      Content="{materialDesign:PackIcon Kind=Hotel}" />
+                      ToolTip="Take a nap"
+                      ToolBar.OverflowMode="Always"
+                      Content="{materialDesign:PackIcon Kind=Hotel}" />
                 <RadioButton
-      GroupName="XXX"
-      Content="Radio" />
+                          GroupName="XXX"
+                          Content="Radio" />
                 <RadioButton
-      GroupName="XXX"
-      Content="Ga Ga" />
+                              GroupName="XXX"
+                              Content="Ga Ga" />
                 <Separator />
                 <RadioButton
-      GroupName="YYY"
-      Style="{DynamicResource MaterialDesignToolRadioButton}"
-      Content="{materialDesign:PackIcon Kind=Radio}" />
+                              GroupName="YYY"
+                              Style="{DynamicResource MaterialDesignToolRadioButton}"
+                              Content="{materialDesign:PackIcon Kind=Radio}" />
                 <RadioButton
-      GroupName="YYY"
-      Style="{DynamicResource MaterialDesignToolRadioButton}"
-      Content="{materialDesign:PackIcon Kind=EmoticonPoop}" />
+                              GroupName="YYY"
+                              Style="{DynamicResource MaterialDesignToolRadioButton}"
+                              Content="{materialDesign:PackIcon Kind=Github}" />
                 <Separator />
-                <ToggleButton />
+                <ToggleButton Margin="838 0 0 0" />
             </ToolBar>
         </ToolBarTray>
         <Grid Grid.Row="2">
@@ -178,444 +96,22 @@
             </Grid.ColumnDefinitions>
             <!--#region leftsideINDEX-->
             <StackPanel Grid.Column="0">
-                <StackPanel.Resources>
-                    <Style TargetType="Button">
-                        <Setter Property="Margin" Value="0 0 0 0"></Setter>
-                        <Setter Property="Width" Value="31.25"></Setter>
-                        <Setter Property="Height" Value="30"></Setter>
-                    </Style>
-                </StackPanel.Resources>
-                <!--#region Table-->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <!--#region JOIN-->
-                    <StackPanel Grid.Column="0">
-                        <Label Content="Join Positions"
-                                Foreground="White"
-                                        FontFamily="Britannic Bold"
-                               HorizontalContentAlignment="Center"/>
-                        <Grid Height="300">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <!--#region Namevalue-->
-                            <Label Content="Joit-1"
-                                   Foreground="White"
-                                   Grid.Row="0"
-                                   Grid.Column="0"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <Label Content="Joint-2"
-                                   Foreground="White"
-                                   Grid.Row="1"
-                                   Grid.Column="0"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <Label Content="Joint-3"
-                                   Foreground="White"
-                                   Grid.Row="2"
-                                   Grid.Column="0"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <Label Content="Joint-4"
-                                   Foreground="White"
-                                   Grid.Row="3"
-                                   Grid.Column="0"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-
-                            <!--#endregion-->
-                            <!--#region value-->
-                            <Label Content="00.00"
-                                   Foreground="White"
-                                   Grid.Row="0"
-                                   Grid.Column="1"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <Label Content="00.00"
-                                   Foreground="White"
-                                   Grid.Row="1"
-                                   Grid.Column="1"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <Label Content="00.00"
-                                   Foreground="White"
-                                   Grid.Row="2"
-                                   Grid.Column="1"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <Label Content="00.00"
-                                   Foreground="White"
-                                   Grid.Row="3"
-                                   Grid.Column="1"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-
-                            <!--#endregion-->
-                        </Grid>
-                    </StackPanel>
-                    <!--#endregion-->
-                    <!--#region TOOL-->
-                    <StackPanel Grid.Column="1">
-                        <Label Content="Tool Positions"
-                               Foreground="White"
-                                        FontFamily="Britannic Bold"
-                               HorizontalContentAlignment="Center"/>
-                        <Grid Height="300">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <!--#region Namevalue-->
-                            <Label Content="X"
-                                   Foreground="White"
-                                   Grid.Row="0"
-                                   Grid.Column="0"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <Label Content="Y"
-                                   Foreground="White"
-                                   Grid.Row="1"
-                                   Grid.Column="0"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <Label Content="Z"
-                                   Foreground="White"
-                                   Grid.Row="2"
-                                   Grid.Column="0"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <Label Content="U"
-                                   Foreground="White"
-                                   Grid.Row="3"
-                                   Grid.Column="0"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <Label Content="V"
-                                   Foreground="White"
-                                   Grid.Row="4"
-                                   Grid.Column="0"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <Label Content="M"
-                                   Foreground="White"
-                                   Grid.Row="5"
-                                   Grid.Column="0"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <!--#endregion-->
-                            <!--#region value-->
-                            <Label Content="mm"
-                                   Foreground="White"
-                                   Grid.Row="0"
-                                   Grid.Column="1"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <Label Content="mm"
-                                   Foreground="White"
-                                   Grid.Row="1"
-                                   Grid.Column="1"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <Label Content="mm"
-                                   Foreground="White"
-                                   Grid.Row="2"
-                                   Grid.Column="1"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <Label Content="00.00"
-                                   Foreground="White"
-                                   Grid.Row="3"
-                                   Grid.Column="1"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <Label Content="00.00"
-                                   Foreground="White"
-                                   Grid.Row="4"
-                                   Grid.Column="1"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <Label Content="00.00"
-                                   Foreground="White"
-                                   Grid.Row="5"
-                                   Grid.Column="1"
-                                   HorizontalContentAlignment="Center"
-                                   VerticalContentAlignment="Center"/>
-                            <!--#endregion-->
-                        </Grid>
-                    </StackPanel>
-                    <!--#endregion-->
-                </Grid>
-                <!--#endregion-->
-                <!--#region Port-->
-                <Label Content="DO"
-                       Foreground="Black"
-                                        FontFamily="Britannic Bold"/>
-                <!--#region DI-->
-                <DockPanel>
-                    <Button Background="Gray"
-                            Content="0"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="1"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="2"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="3"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="4"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="5"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="6"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="7"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="8"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="9"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="10"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="11"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="12"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="13"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="14"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="15"
-                            Foreground="White"/>
-                </DockPanel>
-                <DockPanel>
-                    <Button Background="Gray"
-                            Content="16"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="17"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="18"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="19"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="20"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="21"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="22"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="23"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="24"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="25"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="26"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="27"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="28"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="29"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="30"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="31"
-                            Foreground="White"/>
-                </DockPanel>
-                <!--#endregion-->
-                <Label Content="DI"
-                        Foreground="Black"
-                                        FontFamily="Britannic Bold"/>
-                <!--#region DO-->
-                <DockPanel>
-                    <Button Background="Gray"
-                            Content="0"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="1"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="2"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="3"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="4"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="5"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="6"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="7"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="8"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="9"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="10"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="11"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="12"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="13"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="14"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="15"
-                            Foreground="White"/>
-                </DockPanel>
-                <DockPanel>
-                    <Button Background="Gray"
-                            Content="16"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="17"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="18"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="19"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="20"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="21"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="22"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="23"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="24"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="25"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="26"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="27"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="28"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="29"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="30"
-                            Foreground="White"/>
-                    <Button Background="Gray"
-                            Content="31"
-                            Foreground="White"/>
-                </DockPanel>
-                <!--#endregion-->
-                <!--#endregion-->
+                <views:DigitalIO></views:DigitalIO>
             </StackPanel>
             <!--#endregion-->
             <StackPanel Grid.Column="1">
-                <StackPanel Orientation="Horizontal"
-                            Margin="5"
-                            Width="600">
-                    <TextBlock Background="White" Width="500"
-                       TextWrapping="Wrap"
-                       Text="{Binding Path}"/>
-                    <Button Content="Chọn File"
-                            Foreground="Black"
-                    Command="{Binding BrowseCommand}"
-                    Background="LightGray"
-                    Width="100"/>
-                </StackPanel>
-                <Button   Width="300"
-                          Height="80"
-                          Background="AliceBlue"
-                          BorderThickness="2"
-                          BorderBrush="White"
-                          Style="{StaticResource MaterialDesignRaisedAccentButton}"                          
-                          ToolTip="Resource name: MaterialDesignRaisedAccentButton"
-                          Content="CHẠY MÁY"
-                          FontFamily="sss"
-                          FontSize="25"/>
-                
-                <Button   Width="300"
-                          Height="80"
-                          Margin="0 10"
-                          Background="LightGray"
-                          BorderThickness="2"
-                          BorderBrush="White"
-                          Style="{StaticResource MaterialDesignRaisedAccentButton}"                          
-                          ToolTip="Resource name: MaterialDesignRaisedAccentButton"
-                          Content="DỪNG MÁY"
-                          FontFamily="sss"
-                          FontSize="25"/>
+                <ContentControl Content="{Binding CurrentViewModel}" 
+                            x:Name="ccc"
+                            Grid.RowSpan="2">
+                    <ContentControl.Resources>
+                        <DataTemplate DataType="{x:Type viewmodels:ScreenWorkVM}">
+                            <views:ScreenWork />
+                        </DataTemplate>                        
+                        <DataTemplate DataType="{x:Type viewmodels:AnalysisCadVM}">
+                            <views:AnalysisCad />
+                        </DataTemplate>
+                    </ContentControl.Resources>
+                </ContentControl>
             </StackPanel>
         </Grid>
     </Grid>

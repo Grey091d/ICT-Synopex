@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SYNOPEX_ICT.Stored;
+using SYNOPEX_ICT.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +15,20 @@ namespace SYNOPEX_ICT
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+
+            NavigationStore navigationStore = new NavigationStore();
+
+            navigationStore.CurrentViewModel = new AnalysisCadVM(navigationStore);
+
+            MainWindow = new MainWindow()
+            {
+                DataContext = new MainWindowVM(navigationStore)
+            };
+            MainWindow.Show();
+
+            base.OnStartup(e);
+        }
     }
 }

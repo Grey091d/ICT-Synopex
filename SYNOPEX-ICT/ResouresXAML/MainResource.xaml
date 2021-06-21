@@ -3,5 +3,8 @@
                     xmlns:local="clr-namespace:SYNOPEX_ICT.ResouresXAML"
                     xmlns:vm ="clr-namespace:SYNOPEX_ICT.ViewModels">
     <vm:MainWindowVM x:Key="VMmainWindow"></vm:MainWindowVM>
-    <vm:VMcontrolBar x:Key="VMcontrolBar"></vm:VMcontrolBar>    
+    <vm:VMcontrolBar x:Key="VMcontrolBar"></vm:VMcontrolBar>
+    <vm:ScreenWorkVM x:Key="ScreenWorkVM"></vm:ScreenWorkVM>
+    <vm:AnalysisCadVM x:Key="AlalysisCadVM"></vm:AnalysisCadVM>
+    <vm:DigitalIOVM x:Key="DigitalIOVM"></vm:DigitalIOVM>
 </ResourceDictionary>

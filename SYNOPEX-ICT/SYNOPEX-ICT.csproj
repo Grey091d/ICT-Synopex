@@ -39,6 +39,9 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ACadSharp">
+      <HintPath>D:\LIBC#\CAD\ACadSharp.dll</HintPath>
+    </Reference>
     <Reference Include="devDept.CustomControls.Win">
       <HintPath>D:\LIBC#\EyeShotDLL\devDept.CustomControls.Win.dll</HintPath>
     </Reference>
@@ -101,13 +104,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\NavigateCommand.cs" />
     <Compile Include="Models\Monitor.cs" />
+    <Compile Include="Models\PointCheck.cs" />
+    <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Services\ParameterNavigationService.cs" />
+    <Compile Include="Stored\NavigationStore.cs" />
     <Compile Include="UserControls\ControlBar.xaml.cs">
       <DependentUpon>ControlBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\AnalysisCadVM.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
+    <Compile Include="ViewModels\DigitalIOVM.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />
+    <Compile Include="ViewModels\ScreenWorkVM.cs" />
     <Compile Include="ViewModels\VMcontrolBar.cs" />
+    <Compile Include="Views\AnalysisCad.xaml.cs">
+      <DependentUpon>AnalysisCad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DigitalIO.xaml.cs">
+      <DependentUpon>DigitalIO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ScreenWork.xaml.cs">
+      <DependentUpon>ScreenWork.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -135,6 +156,18 @@
     <Page Include="UserControls\ControlBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AnalysisCad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DigitalIO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ScreenWork.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -164,9 +197,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
